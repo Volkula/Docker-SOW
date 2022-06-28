@@ -9,5 +9,6 @@ RUN ssh-keygen -A
 COPY ./tz.key.pub /root/.ssh/authorized_keys
 COPY ./tz.key /root/.ssh/id_rsa
 COPY ./sshd_config /etc/ssh/sshd_config
+COPY ./tz.repo /etc/yum.repos.d/tz.repo
 
 CMD ["/usr/sbin/nginx"]

@@ -23,7 +23,7 @@ services:
     networks:
       - tz-sifox
     volumes:
-      - ./yum.sh:/opt/repo/yum.sh
+      - ./client/yum.sh:/opt/repo/yum.sh
 
 networks:
   tz-sifox:
