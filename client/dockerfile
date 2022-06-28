@@ -1,7 +1,5 @@
 FROM centos:7
 
-RUN yum install -y epel-release && yum install -y nginx
-RUN echo 'daemon off;' >> /etc/nginx/nginx.conf
 RUN yum install -y openssh-server openssh-clients
 
 RUN ssh-keygen -A
@@ -11,4 +9,4 @@ COPY ./tz.key /root/.ssh/id_rsa
 COPY ./sshd_config /etc/ssh/sshd_config
 COPY ./tz.repo /etc/yum.repos.d/tz.repo
 
-CMD ["/usr/sbin/nginx"]
+CMD ["/usr/sbin/sshd", "-D", "-e"]
