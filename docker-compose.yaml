@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  server:
+    build: ./server
+    container_name: server
+    hostname: server
+    ports:
+      - "2223:2223"
+      - "8080:8080"
+    networks:
+      - tz-sifox
+    volumes:
+      - ./server/repo:/opt/repo
+
+  client:
+    build: ./client
+    container_name: client
+    hostname: client
+    depends_on:
+      - server
+    ports:
+      - "2224:2224"
+    networks:
+      - tz-sifox
+    volumes:
+      - ./yum.sh:/opt/repo/yum.sh
+
+networks:
+  tz-sifox:
+    driver: 'bridge'

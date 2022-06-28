@@ -1,0 +1,5 @@
+[tz-repo]
+name=TZ repo
+baseurl=http://server:8080
+enabled=1
+gpgcheck=0
