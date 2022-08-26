@@ -6,7 +6,7 @@ services:
     hostname: server
     ports:
       - "2223:2223"
-      - "8080:8080"
+      - "8090:8080"
     networks:
       - tz-sifox
     volumes:
