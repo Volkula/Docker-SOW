@@ -11,6 +11,7 @@ services:
       - tz-sifox
     volumes:
       - ./server/repo:/opt/repo
+      - ./server/key:/root/.ssh
 
   client:
     build: ./client
@@ -24,6 +25,7 @@ services:
       - tz-sifox
     volumes:
       - ./client/yum.sh:/opt/repo/yum.sh
+      - ./server/key:/root/.ssh
 
 networks:
   tz-sifox:

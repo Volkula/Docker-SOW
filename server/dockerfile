@@ -12,10 +12,7 @@ COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY ./sshd/sshd_config /etc/ssh/sshd_config
 COPY ./supervisord/services.ini /etc/supervisord.d/services.ini
 
-RUN ssh-keygen -A
-
-COPY ./key/tz.key.pub /root/.ssh/authorized_keys
-COPY ./key/tz.key /root/.ssh/id_rsa
+RUN ssh-keygen -A && ssh-keygen -b 2048 -t rsa -f /root/.ssh/id_rsa -q -N "" && cat /root/id_rsa
 
 RUN echo 'root:secret' | chpasswd
 
